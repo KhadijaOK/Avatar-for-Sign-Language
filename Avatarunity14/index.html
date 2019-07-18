@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | AvatarsMo</title>
+   
+ 
+	 <style type="text/css">
+         .CRcontent{
+          border-style: outset;
+          border-right-color:black;
+           border-left-color:black;
+          border-width:1px;
+      }
+
+        #slide, #vis {
+            width: 35%;
+            height: 250px;
+            margin-bottom:20px;
+            margin-top:20px;
+            margin-left:150px;
+            background-color:white;
+            text-align: center;
+        }
+
+        #avatar {
+            margin-bottom:20px;
+            margin-top:20px;
+            width: 20%;
+            float: right;
+            height: 550px;
+            top:90px;
+            z-index: 10;
+            position: absolute;
+            right: 200px;
+           
+        }
+      
+        body {
+            background-image: url('image/backgroundTr.png');
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
+
+        .head {
+            background-color: white /*#5F9EA0#B0C4DE*/;
+            width: 100%;
+            height: 50px;
+            padding-top: 20px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        .foot {
+            bottom: 0;
+            background-color: white /*#5F9EA0#B0C4DE*/;
+            width: 100%;
+            height: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-top: 100px;
+            text-align: center;
+            position: fixed;
+            bottom: 5px;
+        }
+
+        #lessonListButton {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+            text-align: center;
+            bottom: 0px;
+            margin-bottom: 30px;
+            margin-top: 100px;
+            border-bottom-color: red;
+        }
+
+        #kaulogo {
+            height: 50px;
+        }
+
+        #kauand2030logo {
+            position: absolute;
+            right: 0;
+        }
+
+        .head div {
+            display: inline;
+        }
+
+        .Icons {
+            display: inline;
+            margin-right: 20px;
+            padding-right: 30px;
+        }
+
+        #progatarLogo {
+            top: 25px;
+            position: absolute;
+        }
+
+        #menu {
+            position: absolute;
+            left: 0;
+            margin-top: 0;
+        }
+
+            #menu li {
+                padding-right: 20px;
+                display: inline;
+            }
+
+        .auto-style1 {
+            width: 85px;
+            height: 72px;
+            padding-bottom: 10px;
+        }
+         #username {
+            position: relative;
+            top: -20px;
+            margin-right:10px;
+        }
+		/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+button{
+    background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+	border-radius: 12px;
+	 margin-bottom: 30px;
+	
+	
+}
+
+    </style>
+  
+  </head>
+  <body><div class="head">
+        <!-- Start Head -->
+
+
+        <ul style="list-style-type: none" id="menu" class="Icons">
+            <li>
+                <div id="logout">
+                    <a href="Logout.aspx">
+                        <img alt="" src="image\logout.png" width="40" height="40">
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a href="StudentHelp.aspx">
+                        <img alt="" src="image\help.png" width="40" height="40">
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <a href="StudentHome.aspx">
+                        <img alt="" src="image\home.png" width="40" height="40">
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div id="list">
+                    <a href="StudentTopicList.aspx">
+                        <img alt="" src="image\list.png" width="40" height="40">
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+        <div id="progatarLogo" class="Icons">
+            <img alt="" src="image\progatarLogo1.png" class="auto-style1" /></div>
+
+        <div id="kauand2030logo">
+        
+               <div id="username">
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            </div>
+
+            <div class="Icons">
+                <img alt="" src="image\logo_kau.png" id="kaulogo" style="right: 0;" />
+            </div>
+        </div>
+
+    </div>
+    <!-- End Head -->
+
+
+    <div class="body">
+        <!-- Start body -->
+    <div class="CRcontent" id="slide">
+        <!-- slide -->
+		<image Id="Image1" Style="width: 100%; height: 250px" />
+    </div>
+    <div class="CRcontent" id="vis">
+        <!-- Visu -->
+        <image Id="Image2" Style="width: 100%; height: 250px" />
+    </div>
+    <div class="CRcontent" id="avatar">
+
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="550px" width="450px"></canvas>
+    <script type='text/javascript'>
+  var Module = {
+    TOTAL_MEMORY: 268435456,
+    errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+    compatibilitycheck: null,
+    dataUrl: "Release/AvatarUnity14.data",
+    codeUrl: "Release/AvatarUnity14.js",
+    memUrl: "Release/AvatarUnity14.mem",
+    
+  };
+</script>
+<script src="Release/UnityLoader.js"></script>
+<script>
+function slide(arg) {
+	
+  document.getElementById("Image1").src = "s/"+arg;
+
+}
+</script>
+
+<script>
+function visual(arg) {
+	
+  document.getElementById("Image2").src = "s/"+arg;
+
+}
+</script>
+<script>
+function myFunction() {
+
+	
+SendMessage('avon', 'ImportWords', ' **1.png *3.png صحيح في لغة ');
+}
+</script>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">اختبار</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>أي الإجابات تمثل تعريف العدد الصحيح في لغة جافا</p>
+    <form onsubmit='getScore();' >
+  <input type="radio" name="gender" value="0" > int = 7;<br>
+  <input type="radio" name="gender" value="1">int b = 7;<br>
+  <input type="radio" name="gender" value="2"> b = 7;<br>
+  <input type="submit" name="mysubmit" value="Submit">
+</form>
+
+  </div>
+
+</div>
+
+<script>
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script>
+ function getScore(){
+       // Get the selected score (assuming one was selected)
+       var gender = document.querySelector('input[name="gender"]:checked').value;
+	   if(gender==1){
+	   alert("ممتاز");
+	   }
+	   else {
+	   alert("int b=7; : أخطأت... اجابة االصحيحة هي" );
+	   
+	   }
+       
+   }
+
+</script>
+
+ </div>
+  </div>
+    </form>
+     <!-- End body -->
+
+    <div class="foot">
+        © 2017 All Right Reserved for PROGATAR team.
+    </div>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        &nbsp;
+    </p>
+  </body>
+</html>
